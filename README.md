@@ -19,7 +19,7 @@ Source code: https://github.com/noahgift/awslambda
 
 ## Steps of building the project from scratch
 
-1. Create Cloud9 working environment, DynamoDB table, SQS queue, and S3 bucket
+### 1. Create Cloud9 working environment, DynamoDB table, SQS queue, and S3 bucket
 
 - On AWS Cloud9 console, open the IDE of your working environment, create a new directory for this project.
 - On AWS DynamoDB console, create the new table with the name 'fang' or whatever you want
@@ -28,11 +28,11 @@ Source code: https://github.com/noahgift/awslambda
 - Open AWS S3 console, create a bucket called 'fangsentiment'(or whatever you want). But, the bucket name should be globally unique.
 
 
-2. Create Producer Lambda function
+### 2. Create Producer Lambda function
 
 The lambda function that reads from DynamoDB table and puts messages into SQS. It is triggered every minute by EventBridge
 
-* Created SAM application *
+- Created SAM application in 2 ways. You can choose whichever you want.
 
 **Create SAM app using CLI**
 
@@ -81,7 +81,7 @@ The sam deploy command deploys an AWS SAM application, and the --guided flag is 
 To create a Lambda SAM Application in the Cloud9 IDE, first click on "AWS", then right-click on "Lambda", and select "Create Lambda SAM Application". From there, you can configure the settings for the SAM app by choosing Python 3.8 as the runtime, selecting the "AWS SAM Hello World" template for the SAM application, specifying the directory where you want to store the files, and giving your app a name such as 'saveToSQS' or any name you prefer.
 
 
-3. Create Consumer Lambda function
+### 3. Create Consumer Lambda function
 
 The second lambda function is responsible for reading messages from an SQS queue and extracting the name of the corresponding company. It then generates Wikipedia snippets based on the name and performs sentiment analysis, key phrase detection, and entity detection on these snippets using the AWS Comprehend API. The analysis results are then written to an S3 bucket. This function is triggered by the SQS service.
 
