@@ -32,7 +32,7 @@ Source code: https://github.com/noahgift/awslambda
 
 The lambda function that reads from DynamoDB table and puts messages into SQS. It is triggered every minute by EventBridge
 
-- Created SAM application in 2 ways. You can choose whichever you want.
+Created SAM application in 2 ways. You can choose whichever you want.
 
 **Create SAM app using CLI**
 
